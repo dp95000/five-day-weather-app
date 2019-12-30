@@ -3,7 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Project Title</title>
+  <title>Your Daily Weather Guide</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -13,10 +15,51 @@
 
     <!-- Start of Header Section -->
     <header>
-
+      <h1>My Weather Dashboard</h1>
     </header>
     <!-- End of Header Section -->
 
+    <!-- Start of Main Content Area -->
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- Left sidebar area -->
+        <div class="col-md-4 left-side">
+          <!-- Search Bar -->
+          <div id="search">
+              <h3>Search for a City</h3>
+              <input id="search-field" type="search">
+              <input id="search-button" type="submit">
+          </div>
+          <!-- End Search Bar -->
+          <!-- Recent Search History -->
+          <div id="recent-search">
+              <h3>Recent Searches</h3>
+          </div>
+           <!-- End Recent Search History -->
+        </div>
+        <!-- Left sidebar area -->
+        
+         <!-- Left sidebar area -->
+         <div class="col-md-8 right-side">
+            <!-- Local Weather -->
+            <div id="local-weather">
+              <h3>Local Weather in Your Area: <span id="local-area"></span></h3>
+
+              <h3>5 Day Forecast</h3>
+            </div>
+            <!-- End Local Weather -->
+            <div id="search-selected">
+              <h3>Selected City</h3>
+
+            </div>
+            <!-- End Local Weather -->
+        </div>
+        <!-- Left sidebar area -->
+
+      </div>
+    </div>
+    <!-- Start of Main Content Area -->
 
     <!-- Start of Footer Section -->
     <footer>
