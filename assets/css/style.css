@@ -27,6 +27,13 @@ h3 {font-weight: 300;}
     padding: 1em;
 }
 
+.fiveday {border: 1px solid white;}
+
+#local-weather, #search-selected {
+    border: 1px solid white;
+    padding: 1em;
+}
+
 #recent-search, #search-selected {
     margin-top: 2em;
 }
@@ -45,4 +52,24 @@ input#search-field {
     border: none;
     background-color: rgba(104, 105, 105, 0.8);
     color: #fff;
+}
+
+button.city-name {
+    border: 1px solid white;
+    padding: .5em;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+/* ==== Mobile Specific Rules ==== */
+
+@media (min-width: 992px) {
+    .fiveday {
+        margin-right: 1em; 
+        padding: .5em;
+    }
 }
