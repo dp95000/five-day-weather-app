@@ -103,10 +103,16 @@ function getLocation() {
 var cities = [];
 function citySearch() {
 
-  var value = $(this).siblings("#search-field").val();
+  //var value = $(this).siblings("#search-field").val();
+  //console.log(this);
+  // console.log(e);
+  //var value = e.currentTarget.dataset.name;
+  var cityinput = $("#search-field").val();
+  console.log(cityinput);
+  var value = $(this).data("name");
   var APIkey = "d95fc1da79853f3038b9424209b7d6ab"
-  //var queryURL = "https://api.openweathermap.org/data/2.5/find?q=" + value + "&units=imperial&appid=" + APIkey;
-  var queryURL = "https://api.openweathermap.org/data/2.5/find?q=dallas&units=imperial&appid=" + APIkey;
+  var queryURL = "https://api.openweathermap.org/data/2.5/find?q=" + value + "&units=imperial&appid=" + APIkey;
+  // var queryURL = "https://api.openweathermap.org/data/2.5/find?q=dallas&units=imperial&appid=" + APIkey;
   //var city = $(this).attr("data-name");
 
     $.ajax({
