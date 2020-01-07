@@ -94,6 +94,20 @@ function getLocation() {
           $("#local-five-humid-five").prepend(localFiveHumidFive);
        });
    }
+   // Get the UV value 
+   function localUv(){
+    $.ajax({
+      url: uvWeatherURL,
+      method: "GET"
+      }).then(function(localUV) {
+        console.log(localUV);
+        var localUvItem = localUV.value;
+        $("#local-uv").prepend(localUvItem);
+      });
+   }
+
+   localUv();
+
    localWeather();
   }
   getLocation();
@@ -107,12 +121,12 @@ function citySearch() {
   //console.log(this);
   // console.log(e);
   //var value = e.currentTarget.dataset.name;
+  $("#search-selected").css("display", "block");
   var cityinput = $("#search-field").val();
   console.log(cityinput);
   var value = $(this).data("name");
   var APIkey = "d95fc1da79853f3038b9424209b7d6ab"
   var queryURL = "https://api.openweathermap.org/data/2.5/find?q=" + value + "&units=imperial&appid=" + APIkey;
-  // var queryURL = "https://api.openweathermap.org/data/2.5/find?q=dallas&units=imperial&appid=" + APIkey;
   //var city = $(this).attr("data-name");
 
     $.ajax({
@@ -128,53 +142,53 @@ function citySearch() {
     var selectTemp = response2.list[0].main.temp;
     var selectHumid = response2.list[0].main.humidity;
     var selectWind = response2.list[0].wind.speed;
-    $("#select-area").prepend(selectCity);
+    $("#select-area").text(selectCity);
     $("#select-icon").attr("src", selectIcon);
-    $("#select-temp").prepend(selectTemp);
-    $("#select-humid").prepend(selectHumid);
-    $("#select-wind").prepend(selectWind);
+    $("#select-temp").text(selectTemp);
+    $("#select-humid").text(selectHumid);
+    $("#select-wind").text(selectWind);
 
-   // Get values for local 5 day forecast sections
+   // Get values for search city 5 day forecast sections
    // Block 1
    var cityFiveDateOne = response2.list[1].dt_txt;
    var cityFiveIconOne = "http://openweathermap.org/img/w/" + response2.list[0].weather[0].icon + ".png";
    var cityFiveTempOne = response2.list[0].main.temp;
    var cityFiveHumidOne = response2.list[0].main.humidity;
    $("#city-five-icon-one").attr("src", cityFiveIconOne);
-   $("#city-five-temp-one").prepend(cityFiveTempOne); 
-   $("#city-five-humid-one").prepend(cityFiveHumidOne);
+   $("#city-five-temp-one").text(cityFiveTempOne); 
+   $("#city-five-humid-one").text(cityFiveHumidOne);
 
    // Block 2
    var cityFiveIconTwo = "http://openweathermap.org/img/w/" + response2.list[1].weather[0].icon + ".png";
    var cityFiveTempTwo = response2.list[1].main.temp;
    var cityFiveHumidTwo = response2.list[1].main.humidity;
    $("#city-five-icon-two").attr("src", cityFiveIconTwo);
-   $("#city-five-temp-two").prepend(cityFiveTempTwo); 
-   $("#city-five-humid-two").prepend(cityFiveHumidTwo);
+   $("#city-five-temp-two").text(cityFiveTempTwo); 
+   $("#city-five-humid-two").text(cityFiveHumidTwo);
 
    // Block 3
    var cityFiveIconThree = "http://openweathermap.org/img/w/" + response2.list[2].weather[0].icon + ".png";
    var cityFiveTempThree = response2.list[2].main.temp;
    var cityFiveHumidThree = response2.list[2].main.humidity;
    $("#city-five-icon-three").attr("src", cityFiveIconThree);
-   $("#city-five-temp-three").prepend(cityFiveTempThree); 
-   $("#city-five-humid-three").prepend(cityFiveHumidThree);
+   $("#city-five-temp-three").text(cityFiveTempThree); 
+   $("#city-five-humid-three").text(cityFiveHumidThree);
 
    // Block 4
    var cityFiveIconFour = "http://openweathermap.org/img/w/" + response2.list[3].weather[0].icon + ".png";
    var cityFiveTempFour = response2.list[3].main.temp;
    var cityFiveHumidFour = response2.list[3].main.humidity;
    $("#city-five-icon-four").attr("src", cityFiveIconFour);
-   $("#city-five-temp-four").prepend(cityFiveTempFour); 
-   $("#city-five-humid-four").prepend(cityFiveHumidFour);
+   $("#city-five-temp-four").text(cityFiveTempFour); 
+   $("#city-five-humid-four").text(cityFiveHumidFour);
 
    // Block 5
    var cityFiveIconFive = "http://openweathermap.org/img/w/" + response2.list[4].weather[0].icon + ".png";
    var cityFiveTempFive = response2.list[4].main.temp;
    var cityFiveHumidFive = response2.list[4].main.humidity;
    $("#city-five-icon-five").attr("src", cityFiveIconFive);
-   $("#city-five-temp-five").prepend(cityFiveTempFive); 
-   $("#city-five-humid-five").prepend(cityFiveHumidFive);
+   $("#city-five-temp-five").text(cityFiveTempFive); 
+   $("#city-five-humid-five").text(cityFiveHumidFive);
 
   });
 
@@ -199,17 +213,20 @@ function renderButtons() {
     a.attr("data-name", cities[i]);
     // Providing the initial button text
     a.text(cities[i]);
+    localStorage.setItem("Search Result", JSON.stringify(cities[i]));
+    var savedCity = JSON.parse(localStorage.getItem("Search Result"));
     // Adding the button to the buttons-view div
     $("#recent-search").append(a);
   }
 }
 
-// This function handles events where a movie button is clicked
+// This function handles events where a button is clicked
 $("#search-button").on("click", function(event) {
   event.preventDefault();
   // This line grabs the input from the textbox
   var city = $("#search-field").val().trim();
   var value = $("#search-field").val().trim();
+
 
   // Adding movie from the textbox to our array
   cities.push(city);

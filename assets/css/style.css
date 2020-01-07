@@ -38,6 +38,8 @@ h3 {font-weight: 300;}
     margin-top: 2em;
 }
 
+#search-selected {display: none;}
+
 input#search-button {
     padding: 0.5em;
     background-color: rgba(228, 28, 28, 0.5);
@@ -63,6 +65,7 @@ button.city-name {
     background: transparent;
     color: #fff;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 /* ==== Mobile Specific Rules ==== */
