@@ -18,8 +18,8 @@ function getLocation() {
    console.log(lon);
 
     var APIkey = "d95fc1da79853f3038b9424209b7d6ab"
-    var uvWeatherURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIkey;
-    var localWeatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=d95fc1da79853f3038b9424209b7d6ab";
+    var uvWeatherURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIkey;
+    var localWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=d95fc1da79853f3038b9424209b7d6ab";
    
    // Get the local 5 day forecast for the user's current location
    function localWeather(){
@@ -31,7 +31,7 @@ function getLocation() {
            // Get values for main local weather section and append them to the display
            var localCity = localResponse.city.name;
            var localDate = localResponse.list[0].dt_txt;
-           var localIcon = "http://openweathermap.org/img/w/" + localResponse.list[0].weather[0].icon + ".png";
+           var localIcon = "https://openweathermap.org/img/w/" + localResponse.list[0].weather[0].icon + ".png";
            var localTemp = localResponse.list[0].main.temp;
            var localHumid = localResponse.list[0].main.humidity;
            var localWind = localResponse.list[0].wind.speed;
@@ -45,7 +45,7 @@ function getLocation() {
           // Get values for local 5 day forecast sections
           // Block 1
           var localFiveDateOne = localResponse.list[1].dt_txt;
-          var localFiveIconOne = "http://openweathermap.org/img/w/" + localResponse.list[1].weather[0].icon + ".png";
+          var localFiveIconOne = "https://openweathermap.org/img/w/" + localResponse.list[1].weather[0].icon + ".png";
           var localFiveTempOne = localResponse.list[1].main.temp;
           var localFiveHumidOne = localResponse.list[1].main.humidity;
           $("#local-five-date-one").prepend(localFiveDateOne);
@@ -55,7 +55,7 @@ function getLocation() {
 
           // Block 2
           var localFiveDateTwo = localResponse.list[6].dt_txt;
-          var localFiveIconTwo = "http://openweathermap.org/img/w/" + localResponse.list[6].weather[0].icon + ".png";
+          var localFiveIconTwo = "https://openweathermap.org/img/w/" + localResponse.list[6].weather[0].icon + ".png";
           var localFiveTempTwo = localResponse.list[6].main.temp;
           var localFiveHumidTwo = localResponse.list[6].main.humidity;
           $("#local-five-date-two").prepend(localFiveDateTwo);
@@ -65,7 +65,7 @@ function getLocation() {
 
           // Block 3
           var localFiveDateThree = localResponse.list[14].dt_txt;
-          var localFiveIconThree = "http://openweathermap.org/img/w/" + localResponse.list[14].weather[0].icon + ".png";
+          var localFiveIconThree = "https://openweathermap.org/img/w/" + localResponse.list[14].weather[0].icon + ".png";
           var localFiveTempThree = localResponse.list[14].main.temp;
           var localFiveHumidThree = localResponse.list[14].main.humidity;
           $("#local-five-date-three").prepend(localFiveDateThree);
@@ -75,7 +75,7 @@ function getLocation() {
 
           // Block 4
           var localFiveDateFour = localResponse.list[22].dt_txt;
-          var localFiveIconFour = "http://openweathermap.org/img/w/" + localResponse.list[22].weather[0].icon + ".png";
+          var localFiveIconFour = "https://openweathermap.org/img/w/" + localResponse.list[22].weather[0].icon + ".png";
           var localFiveTempFour = localResponse.list[22].main.temp;
           var localFiveHumidFour = localResponse.list[22].main.humidity;
           $("#local-five-date-four").prepend(localFiveDateFour);
@@ -85,7 +85,7 @@ function getLocation() {
 
           // Block 5
           var localFiveDateFive = localResponse.list[30].dt_txt;
-          var localFiveIconFive = "http://openweathermap.org/img/w/" + localResponse.list[30].weather[0].icon + ".png";
+          var localFiveIconFive = "https://openweathermap.org/img/w/" + localResponse.list[30].weather[0].icon + ".png";
           var localFiveTempFive = localResponse.list[30].main.temp;
           var localFiveHumidFive = localResponse.list[30].main.humidity;
           $("#local-five-date-five").prepend(localFiveDateFive);
@@ -132,7 +132,7 @@ function citySearch() {
     // Parameter Results go here.
     // Get values for search city section and append them to the display
     var selectCity = response2.list[0].name;
-    var selectIcon = "http://openweathermap.org/img/w/" + response2.list[0].weather[0].icon + ".png";
+    var selectIcon = "https://openweathermap.org/img/w/" + response2.list[0].weather[0].icon + ".png";
     var selectTemp = response2.list[0].main.temp;
     var selectHumid = response2.list[0].main.humidity;
     var selectWind = response2.list[0].wind.speed;
@@ -145,7 +145,7 @@ function citySearch() {
    // Get values for search city 5 day forecast sections
    // Block 1
    var cityFiveDateOne = response2.list[1].dt_txt;
-   var cityFiveIconOne = "http://openweathermap.org/img/w/" + response2.list[0].weather[0].icon + ".png";
+   var cityFiveIconOne = "https://openweathermap.org/img/w/" + response2.list[0].weather[0].icon + ".png";
    var cityFiveTempOne = response2.list[0].main.temp;
    var cityFiveHumidOne = response2.list[0].main.humidity;
    $("#city-five-icon-one").attr("src", cityFiveIconOne);
@@ -153,7 +153,7 @@ function citySearch() {
    $("#city-five-humid-one").text(cityFiveHumidOne);
 
    // Block 2
-   var cityFiveIconTwo = "http://openweathermap.org/img/w/" + response2.list[1].weather[0].icon + ".png";
+   var cityFiveIconTwo = "https://openweathermap.org/img/w/" + response2.list[1].weather[0].icon + ".png";
    var cityFiveTempTwo = response2.list[1].main.temp;
    var cityFiveHumidTwo = response2.list[1].main.humidity;
    $("#city-five-icon-two").attr("src", cityFiveIconTwo);
@@ -161,7 +161,7 @@ function citySearch() {
    $("#city-five-humid-two").text(cityFiveHumidTwo);
 
    // Block 3
-   var cityFiveIconThree = "http://openweathermap.org/img/w/" + response2.list[2].weather[0].icon + ".png";
+   var cityFiveIconThree = "https://openweathermap.org/img/w/" + response2.list[2].weather[0].icon + ".png";
    var cityFiveTempThree = response2.list[2].main.temp;
    var cityFiveHumidThree = response2.list[2].main.humidity;
    $("#city-five-icon-three").attr("src", cityFiveIconThree);
@@ -169,7 +169,7 @@ function citySearch() {
    $("#city-five-humid-three").text(cityFiveHumidThree);
 
    // Block 4
-   var cityFiveIconFour = "http://openweathermap.org/img/w/" + response2.list[3].weather[0].icon + ".png";
+   var cityFiveIconFour = "https://openweathermap.org/img/w/" + response2.list[3].weather[0].icon + ".png";
    var cityFiveTempFour = response2.list[3].main.temp;
    var cityFiveHumidFour = response2.list[3].main.humidity;
    $("#city-five-icon-four").attr("src", cityFiveIconFour);
@@ -177,7 +177,7 @@ function citySearch() {
    $("#city-five-humid-four").text(cityFiveHumidFour);
 
    // Block 5
-   var cityFiveIconFive = "http://openweathermap.org/img/w/" + response2.list[4].weather[0].icon + ".png";
+   var cityFiveIconFive = "https://openweathermap.org/img/w/" + response2.list[4].weather[0].icon + ".png";
    var cityFiveTempFive = response2.list[4].main.temp;
    var cityFiveHumidFive = response2.list[4].main.humidity;
    $("#city-five-icon-five").attr("src", cityFiveIconFive);
