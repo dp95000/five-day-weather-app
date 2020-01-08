@@ -113,7 +113,6 @@ function getLocation() {
   getLocation();
 
 // Get 5 day forecast via city search
-
 var cities = [];
 function citySearch() {
 
@@ -123,7 +122,6 @@ function citySearch() {
   var value = $(this).data("name");
   var APIkey = "d95fc1da79853f3038b9424209b7d6ab"
   var queryURL = "https://api.openweathermap.org/data/2.5/find?q=" + value + "&units=imperial&appid=" + APIkey;
-  //var city = $(this).attr("data-name");
 
     $.ajax({
         url: queryURL,
@@ -191,10 +189,19 @@ function citySearch() {
 }
 
 var retrieveHistory = localStorage.getItem("Search Result");
+// This function determines is retriveHistory is null or already exists
 if (retrieveHistory) {
   cities = retrieveHistory.split(",");
   renderButtons();
 }
+
+// Clear Search History Function
+  $("#clear-history").click(function() {
+    localStorage.clear();
+    cities = [];
+    $("button.city-name").remove();
+  });
+
 
 // Function for displaying recent searches
 function renderButtons() {
@@ -218,9 +225,6 @@ function renderButtons() {
 
     var history = localStorage.getItem("Search Result") || 0;
     localStorage.setItem("Search Result", cities);
-
-    
-    //$('#recent-search').append(history);
 
     // Adding the button to the buttons-view div
     $("#recent-search").append(a);

@@ -40,7 +40,7 @@ h3 {font-weight: 300;}
 
 #search-selected {display: none;}
 
-input#search-button {
+input#search-button, button#clear-history {
     padding: 0.5em;
     background-color: rgba(228, 28, 28, 0.5);
     border: none;
@@ -54,6 +54,8 @@ input#search-field {
     border: none;
     background-color: rgba(104, 105, 105, 0.8);
     color: #fff;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 button.city-name {
