@@ -117,10 +117,6 @@ function getLocation() {
 var cities = [];
 function citySearch() {
 
-  //var value = $(this).siblings("#search-field").val();
-  //console.log(this);
-  // console.log(e);
-  //var value = e.currentTarget.dataset.name;
   $("#search-selected").css("display", "block");
   var cityinput = $("#search-field").val();
   console.log(cityinput);
@@ -194,10 +190,16 @@ function citySearch() {
 
 }
 
+var retrieveHistory = localStorage.getItem("Search Result");
+if (retrieveHistory) {
+  cities = retrieveHistory.split(",");
+  renderButtons();
+}
+
 // Function for displaying recent searches
 function renderButtons() {
 
-  // Deleting the cities prior to adding new movies
+  // Deleting the cities prior to adding new ones
   // (this is necessary otherwise you will have repeat buttons)
   $("#recent-search").empty();
 
@@ -213,8 +215,13 @@ function renderButtons() {
     a.attr("data-name", cities[i]);
     // Providing the initial button text
     a.text(cities[i]);
-    localStorage.setItem("Search Result", JSON.stringify(cities[i]));
-    var savedCity = JSON.parse(localStorage.getItem("Search Result"));
+
+    var history = localStorage.getItem("Search Result") || 0;
+    localStorage.setItem("Search Result", cities);
+
+    
+    //$('#recent-search').append(history);
+
     // Adding the button to the buttons-view div
     $("#recent-search").append(a);
   }
@@ -225,7 +232,7 @@ $("#search-button").on("click", function(event) {
   event.preventDefault();
   // This line grabs the input from the textbox
   var city = $("#search-field").val().trim();
-  var value = $("#search-field").val().trim();
+  var savedCity = $("#search-field").val().trim();
 
 
   // Adding movie from the textbox to our array
