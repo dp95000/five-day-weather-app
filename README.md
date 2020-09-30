@@ -6,3 +6,11 @@ This personal weather dashboard will display the 5 day forecast for the user's c
 
 # Project Description / Overview
 This personal weather dashboard utilizes the Openweathermap API to grab and display 5 day weather forecast information for both local and searched cities.
+
+# Technologies Used
+* HTML
+* CSS
+* Javascript
+* OpenWeatherMap API
+
+![Application Screenshot](assets/images/screenshot.jpg)
